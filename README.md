@@ -76,3 +76,38 @@ python -m report
 - RR < 2.0 はWAIT
 - 例外時もプロセス継続（runnerでログ出力）
 - 設定値は `config.py` で変更可能
+
+## トラブルシューティング
+
+以前の版で `pandas_ta` のインストールエラーが出るケースがあったため、現在は `pandas_ta` 依存を廃止しています。
+
+依存は以下だけです。
+
+- pandas
+- yfinance
+
+再セットアップする場合:
+
+```bash
+rm -rf .venv
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -r requirements.txt
+```
+
+
+## 更新を取り込んで再実行する手順
+
+既にクローン済みの場合は、以下で最新修正を取り込んでから実行してください。
+
+```bash
+git pull
+rm -rf .venv
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -r requirements.txt
+python -m runner --once
+python -m report
+```
