@@ -48,6 +48,23 @@ python -m runner --once
 python -m runner --schedule
 ```
 
+## 検証（シグナル→トレード自動評価）
+
+ロジック検証のため、保存済みの BUY/SELL シグナルから `trades` を自動生成できます。
+（未検証シグナルのみ対象）
+
+```bash
+python -m verify
+```
+
+件数を絞る場合:
+
+```bash
+python -m verify --limit 50
+```
+
+同一足で SL/TP が両方ヒットした場合は、安全側で SL 優先として評価します。
+
 ## レポート
 
 ```bash
